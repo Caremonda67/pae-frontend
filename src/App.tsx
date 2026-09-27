@@ -1,0 +1,43 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import Chatbot from "./components/Chatbot";
+import Home from "./pages/Home";
+import Menu from "./pages/Menu";
+import Noticias from "./pages/Noticias";
+import Galeria from "./pages/Galeria";
+import Reserva from "./pages/Reserva";
+import Contacto from "./pages/Contacto";
+import Admin from "./pages/Admin";
+import Reportes from "./pages/Reportes";
+import Juegos from "./pages/Juegos";
+import NoEncontrado from "./pages/NoEncontrado";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <a href="#main-content" className="skip-link">
+        Saltar al contenido principal
+      </a>
+      <div className="app-layout">
+        <Sidebar />
+        <main id="main-content" className="contenido">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/noticias" element={<Noticias />} />
+            <Route path="/galeria" element={<Galeria />} />
+            <Route path="/juegos" element={<Juegos />} />
+            <Route path="/reserva" element={<Reserva />} />
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/reportes" element={<Reportes />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="*" element={<NoEncontrado />} />
+          </Routes>
+        </main>
+      </div>
+      <Chatbot />
+    </BrowserRouter>
+  );
+}
+
+export default App;
